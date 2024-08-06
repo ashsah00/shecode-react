@@ -15,7 +15,7 @@ ul {
 }
 
 .col-3 input:hover {
-  background: rgb(75, 139, 234);
+  background: rgb(50, 68, 232);
   color: rgb(229, 235, 237);
   transition: 5ms;
 }
@@ -44,16 +44,18 @@ ul {
 }
 
 .Temp {
-  font-size: 44px;
+  font-size: 40px;
   margin-left: 10px;
 }
 
 .details {
   text-align: right;
+  margin-right: 40px;
 }
 
 .day-time {
   text-align: left;
+  margin-left: 40px;
 }
 
 h1 {
@@ -63,4 +65,5 @@ h1 {
   font-family: "Bona Nova SC", cursive;
   font-weight: 650;
   font-style: normal;
+  margin-left: 15px;
 }
