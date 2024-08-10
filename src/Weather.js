@@ -1,26 +1,35 @@
 import React, { useState } from "react";
+import DateDetails from "./DateDetails";
 import axios from "axios";
 import "./Weather.css";
 
-function Weather() {
+function Weather(props) {
   const [temp, setTemp] = useState(null); //using state
-  const [loaded, setLoaded] = useState(false);
-  const [weatherData, setWeatherData] = useState({});
+  const [weatherData, setWeatherData] = useState({ ready: false });
+
+  function cityEntered(event) {
+    // setCity(event.target.value);
+    console.log(event.tagert.value);
+  }
 
   function showTemp(response) {
     console.log(response.data);
+    console.log(new Date(response.data.dt * 1000));
     setWeatherData({
-      //  city: response.data.main.name,
+      ready: true,
       temp: response.data.main.temp,
       precipitation: response.data.main.temp,
       humidity: response.data.main.humidity,
-      wind: response.data.main.wind.speed,
+      wind: response.data.wind.speed,
+      city: response.data.main.name,
+      description: response.data.weather[0].description,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      date: new Date(response.data.dt * 1000),
     });
     setTemp(response.data.main.temp);
-    setLoaded(true);
   }
 
-  if (loaded) {
+  if (weatherData.ready) {
     return (
       <div className="weatherContainer">
         <form className="row">
@@ -39,34 +48,34 @@ function Weather() {
               text="Search"
               //className="submit"
               className="btn btn-primary w-100"
+              onChange={cityEntered}
             ></input>
           </div>
         </form>
 
         <div className="formOutput">
-          <h1>Rockville</h1>
+          <h1 className="text-capitalize">{props.defaultCity}</h1>
 
           <div class="sub-body">
             <ul className="day-time">
-              <li>Wednesday 08:02pm</li>
-              <li>Mostly sunny</li>
+              <li>
+                <DateDetails date={weatherData.date} />
+              </li>
+              <li className="text-capitalize">{weatherData.description}</li>
             </ul>
             <span className="clearfix">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                alt="weather icon"
-              />
+              <img src={weatherData.iconUrl} alt={weatherData.description} />
               <span className="unitTemp">
                 <span className="Temp">{Math.round(temp)}</span>
-                <span className="Unit">ºF</span>
+                <span className="Unit"> C º | F º </span>
               </span>
             </span>
 
             <div className="details">
               <ul>
                 <li>Precipitation: {weatherData.precipitation}</li>
-                <li>Humidity: {weatherData.humidity}%</li>
-                <li>Wind: {weatherData.wind}</li>
+                <li>Humidity: {weatherData.humidity} %</li>
+                <li>Wind: {weatherData.wind} m/hr</li>
               </ul>
             </div>
           </div>
@@ -75,8 +84,7 @@ function Weather() {
     );
   } else {
     const key = "25fad9f7e87157d33dde0f82ab269ee8";
-    let city = "Bowie";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${key}&units=imperial`;
     axios.get(url).then(showTemp);
     console.log(url);
     return "Loading...";

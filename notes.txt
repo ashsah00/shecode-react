@@ -1,0 +1,10 @@
+
+
+
+        /* 
+  function showTemp(response) {
+    console.log(response.data.main.temp);
+  }
+  let key = "25fad9f7e87157d33dde0f82ab269ee8";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${key}&units=metric`;
+  axios.get(url).then(showTemp); */

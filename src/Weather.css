@@ -41,6 +41,7 @@ ul {
 .Unit {
   position: relative;
   top: 10px;
+  margin-left: 6px;
 }
 
 .Temp {
