@@ -26,27 +26,34 @@ ul {
   position: relative;
 }
 .clearfix {
-  height: 64px;
+  height: 74px;
   display: flex;
   text-align: center;
+  justify-content: space-between;
+}
+
+.icon {
+  margin-left: 10px;
 }
 
 .unitTemp {
   display: flex;
   position: relative;
-
   font-size: 14px;
+  line-height: 85px;
+  margin-left: 5px;
 }
 
 .Unit {
+  display: flex;
+  justify-content: space-around;
   position: relative;
-  top: 10px;
-  margin-left: 6px;
+  top: -16px;
+  margin-left: 10px;
 }
 
 .Temp {
   font-size: 40px;
-  margin-left: 10px;
 }
 
 .details {
