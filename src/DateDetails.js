@@ -16,7 +16,7 @@ function DateDetails(props) {
   let mins = props.date.getMinutes();
 
   if (hours < 10) {
-    day = `0${hours}`;
+    hours = `0${hours}`;
   }
 
   if (mins < 10) {
