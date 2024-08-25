@@ -11,7 +11,10 @@ function DateDetails(props) {
     "Saturday",
   ];
   let day = days[props.date.getDay()];
-  // let date = props.date.get
+  // let date = props.date.getDate();
+  //  let month = props.date.getMonth();
+  //console.log(month);
+
   let hours = props.date.getHours();
   let mins = props.date.getMinutes();
 
@@ -25,7 +28,10 @@ function DateDetails(props) {
 
   return (
     <div>
-      {day} {hours}:{mins}
+      {day}{" "}
+      <strong>
+        {hours}:{mins}
+      </strong>
     </div>
   );
 }

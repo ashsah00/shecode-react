@@ -24,9 +24,15 @@ function WeatherDetails(props) {
 
         <div className="details">
           <ul>
-            <li>Precipitation: {props.info.precipitation}</li>
-            <li>Humidity: {props.info.humidity} %</li>
-            <li>Wind: {props.info.wind} m/hr</li>
+            <li>
+              Precipitation: <strong>{props.info.precipitation}</strong>{" "}
+            </li>
+            <li>
+              Humidity: <strong>{props.info.humidity} %</strong>{" "}
+            </li>
+            <li>
+              Wind: <strong>{props.info.wind} m/hr</strong>{" "}
+            </li>
           </ul>
         </div>
       </div>
@@ -35,3 +41,7 @@ function WeatherDetails(props) {
 }
 
 export default WeatherDetails;
+
+//
+//line 21
+//

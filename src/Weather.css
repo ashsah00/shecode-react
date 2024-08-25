@@ -68,10 +68,18 @@ ul {
 
 h1 {
   font-weight: 100;
-  line-height: 80px;
+  line-height: 50px;
   text-align: center;
   font-family: "Bona Nova SC", cursive;
   font-weight: 650;
   font-style: normal;
   margin-left: 15px;
+}
+
+strong {
+  color: rgb(49, 96, 236);
+}
+
+hr {
+  opacity: 0.1;
 }

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherDetails from "./WeatherDetails";
 import axios from "axios";
 import "./Weather.css";
+import ForecastDetails from "./ForecastDetails";
 
 function Weather(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -11,7 +12,7 @@ function Weather(props) {
     const key = "25fad9f7e87157d33dde0f82ab269ee8";
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=imperial`;
     axios.get(url).then(showTemp);
-    console.log(url);
+    //console.log(url);
   }
 
   function citySubmit(event) {
@@ -31,8 +32,8 @@ function Weather(props) {
   function showTemp(response) {
     console.log(response.data);
     //  console.log(new Date(response.data.dt * 1000));
-    console.log(response.data.main.name);
-    console.log(response.data.weather[0].icon);
+    //console.log(response.data.main.name);
+    // console.log(response.data.weather[0].icon);
     setWeatherData({
       ready: true,
       temp: response.data.main.temp,
@@ -42,6 +43,7 @@ function Weather(props) {
       city: response.data.name, //so we can send it as a prop later
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      iconURL: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].description}.png`,
       date: new Date(response.data.dt * 1000),
     });
   }
@@ -69,8 +71,10 @@ function Weather(props) {
             ></input>
           </div>
         </form>
-
+        <hr></hr>
         <WeatherDetails info={weatherData} />
+        <hr></hr>
+        <ForecastDetails cityF={city} />
       </div>
     );
   } else {

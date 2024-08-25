@@ -1,35 +1,30 @@
 import React from "react";
-import ReactAnimatedWeather from "react-animated-weather";
+import { WeatherSvg } from "weather-icons-animated";
 
 function WeatherIcon(props) {
   const iconMapping = {
-    "01d": "CLEAR_DAY",
-    "01n": "CLEAR_NIGHT",
-    "02d": "PARTLY_CLOUDY_DAY",
-    "02n": "PARTLY_CLOUDY_NIGHT",
-    "03d": "PARTLY_CLOUDY_DAY",
-    "03n": "PARTLY_CLOUDY_NIGHT",
-    "04d": "CLOUDY",
-    "04n": "CLOUDY",
-    "09d": "RAIN",
-    "09n": "RAIN",
-    "10d": "RAIN",
-    "10n": "RAIN",
-    "11d": "RAIN",
-    "11n": "RAIN",
-    "13d": "SNOW",
-    "13n": "SNOW",
-    "50d": "FOG",
-    "50n": "FOG",
+    "01d": "sunny",
+    "01n": "clear-night",
+    "02d": "cloudy",
+    "02n": "cloudy",
+    "03d": "partlycloudy",
+    "03n": "partlycloudy",
+    "04d": "cloudy",
+    "04n": "cloudy",
+    "09d": "rain",
+    "09n": "rain",
+    "10d": "lightning-rainy",
+    "10n": "lightning-rainy",
+    "11d": "hail",
+    "11n": "hail",
+    "13d": "snowy",
+    "13n": "snowy",
+    "50d": "fog",
+    "50n": "fog",
   };
 
   return (
-    <ReactAnimatedWeather
-      icon={iconMapping[props.state]}
-      color="goldenrod"
-      size="100"
-      animate={true}
-    />
+    <WeatherSvg state={iconMapping[props.state]} width={100} height={90} />
   );
 }
 
