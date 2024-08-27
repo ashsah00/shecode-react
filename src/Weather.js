@@ -43,7 +43,7 @@ function Weather(props) {
       city: response.data.name, //so we can send it as a prop later
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
-      iconURL: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].description}.png`,
+      iconURL: `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.weather[0].description}.png`,
       date: new Date(response.data.dt * 1000),
     });
   }
