@@ -74,7 +74,7 @@ function Weather(props) {
         <hr></hr>
         <WeatherDetails info={weatherData} />
         <hr></hr>
-        <ForecastDetails cityF={city} />
+        <ForecastDetails cityF={weatherData.city} />
       </div>
     );
   } else {

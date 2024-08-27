@@ -8,7 +8,7 @@ function WeatherDetails(props) {
     <div className="formOutput">
       <h1 className="text-capitalize">{props.info.city}</h1>
 
-      <div class="sub-body">
+      <div className="sub-body">
         <ul className="day-time">
           <li>
             <DateDetails date={props.info.date} />

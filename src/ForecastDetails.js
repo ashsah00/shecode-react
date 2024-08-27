@@ -20,7 +20,6 @@ function ForecastDetails(props) {
 
   if (loaded) {
     // console.log(forecast);
-
     return (
       <div className="container">
         <div className="row">
